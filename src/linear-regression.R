@@ -1,9 +1,10 @@
 ########### Linear Regression ###########
 
 #random lr dataset#
-data = read.csv("D:/Studying/Machine Learning/ML Projects/Linear Regression from scratch (NEW)/test.csv")
+data = read.csv("../Linear-Regression/data/test.csv")
 head(data)
 
+par(mfrow=c(1,2))
 plot(data$x, data$y)
 
 ###### Linear Regression using lm function ######
@@ -84,10 +85,6 @@ comparison = data.frame(Coefficient = c("Intercept", "Slope"),
   Gradient_Descent = c(intercept, slope),
   LM = c(b0, b1))
 
-print(comparison)
-
-row.names(comparison)=c()
-git add .
 print(comparison)
 
 #Compare results using plots
