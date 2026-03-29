@@ -18,7 +18,7 @@ class SimpleLinearRegression:
     def gradient_descent(self, x, y):
         n = len(x)
 
-        for iter in iter:
+        for iter in range(iter):
             # get y_predictions from predict function
             y_pred = self.predict(x) 
 
