@@ -18,7 +18,7 @@ class SimpleLinearRegression:
     def gradient_descent(self, x, y):
         n = len(x)
 
-        for iter in range(self.iter): # changed iter to self.iter
+        for i in range(self.iter): # changed iter to self.iter
             # get y_predictions from predict function
             y_pred = self.predict(x) 
 
@@ -31,7 +31,7 @@ class SimpleLinearRegression:
             self.b = self.b - self.lr * db
 
             # compute loss and track loss
-            if iter % 1000 == 0:
+            if i % 1000 == 0:
                 loss = self.loss_function(y, y_pred)
-                print(f"Iter {iter}: Loss = {loss}, m = {self.m}, b = {self.b}")
+                print(f"Iter {i}: Loss = {loss}, m = {self.m}, b = {self.b}")
 
