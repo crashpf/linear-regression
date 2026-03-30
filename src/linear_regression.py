@@ -13,7 +13,7 @@ class SimpleLinearRegression:
 
     def loss_function(self, y, y_pred):
         n = len(y)
-        return (1/n) * np.sum((y - y_pred))**2 # changed ^2 to **2
+        return (1/n) * np.sum((y - y_pred)**2) # changed ^2 to **2
         
     def gradient_descent(self, x, y):
         n = len(x)
