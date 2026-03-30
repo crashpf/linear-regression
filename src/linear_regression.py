@@ -11,14 +11,14 @@ class SimpleLinearRegression:
     def predict(self, x):
         return self.m * x + self.b 
 
-    def loss_function(y, y_pred):
+    def loss_function(self, y, y_pred):
         n = len(y)
-        return (1/n) * np.sum((y - y_pred))^2 
+        return (1/n) * np.sum((y - y_pred))**2 # changed ^2 to **2
         
     def gradient_descent(self, x, y):
         n = len(x)
 
-        for iter in iter:
+        for iter in range(self.iter): # changed iter to self.iter
             # get y_predictions from predict function
             y_pred = self.predict(x) 
 
@@ -33,5 +33,5 @@ class SimpleLinearRegression:
             # compute loss and track loss
             if iter % 1000 == 0:
                 loss = self.loss_function(y, y_pred)
-                print(f"Iter {iter+1}: Loss = {loss}, m = {self.m}, b = {self.b}")
+                print(f"Iter {iter}: Loss = {loss}, m = {self.m}, b = {self.b}")
 
