@@ -1,7 +1,9 @@
 import numpy as np
 
 class SimpleLinearRegression:
-
+    '''Simple linear regression using gradient descent from scratch for a single feature X1 (y = mx + b). 
+    The goal is to optimize the parameters m and b which are scalars.
+    '''
     def __init__(self, lr, iter):
         self.lr = lr
         self.iter = iter
@@ -9,6 +11,7 @@ class SimpleLinearRegression:
         self.b = 0
 
     def predict(self, x):
+        # x.shape = (n_samples, n_features), in this case (200,1)
         return self.m * x + self.b 
 
     def loss_function(self, y, y_pred):
