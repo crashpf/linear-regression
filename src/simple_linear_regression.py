@@ -4,9 +4,9 @@ class SimpleLinearRegression:
     '''Simple linear regression using gradient descent from scratch for a single feature X1 (y = mx + b). 
     The goal is to optimize the parameters m and b which are scalars.
     '''
-    def __init__(self, lr, iter):
+    def __init__(self, lr, iterations):
         self.lr = lr
-        self.iter = iter
+        self.iterations = iterations
         self.m = 0
         self.b = 0
 
@@ -21,7 +21,7 @@ class SimpleLinearRegression:
     def gradient_descent(self, x, y):
         n = len(x)
 
-        for i in range(self.iter): # changed iter to self.iter
+        for i in range(self.iterations):
             # get y_predictions from predict function
             y_pred = self.predict(x) 
 
@@ -36,4 +36,4 @@ class SimpleLinearRegression:
             # compute loss and track loss
             if i % 1000 == 0:
                 loss = self.loss_function(y, y_pred)
-                print(f"Iter {i}: Loss = {loss}, m = {self.m}, b = {self.b}")
+                print(f"Iteration {i}: Loss = {loss}, m = {self.m}, b = {self.b}")
