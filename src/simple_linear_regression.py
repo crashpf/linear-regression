@@ -18,7 +18,7 @@ class SimpleLinearRegression:
         n = len(y)
         return (1/n) * np.sum((y - y_pred)**2)
         
-    def gradient_descent(self, x, y):
+    def fit(self, x, y):
         n = len(x)
 
         for i in range(self.iterations):
