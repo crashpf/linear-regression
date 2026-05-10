@@ -44,3 +44,7 @@ class LinearRegression:
             # compute loss and track loss
             if i % 1000 == 0:
                 print(f"Iteration {i}: Loss = {loss}")
+
+    def get_loss_history(self):
+        return self.loss_history
+    
