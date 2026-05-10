@@ -5,12 +5,38 @@ class LinearRegression:
     We scaled "simple_linear_regression.py" to multiple features using vectorization.
     The model now becomes y = Xw + b, where X is a matrix and w is a weight vector.
     '''
-    def __init__(self, lr, iter):
+    def __init__(self, lr, iterations):
         self.lr = lr
-        self.iter = iter
+        self.iterations = iterations
         self.w = None
-        self.b = 0
+        self.b = None
     
-    def predict(self, x):
+    def predict(self, X):
         # X.shape = (n_samples, n_features) 
-        return
+        return X @ self.w + self.b
+    
+    def loss_function(self, y, y_pred):
+        n = len(y)
+        return (1/n) * np.sum((y - y_pred) ** 2)
+    
+    def gradient_descent(self, X, y):
+        n_sample, n_features = X.shape
+        self.w = np.zeros(n_features)
+        self.b = 0
+
+        for i in range(self.iterations):
+            # y predictions from predict function
+            y_pred = self.predict(X)
+
+            # gradients
+            dw = (-2 / n_sample) * X.T @ (y - y_pred)  # shape: (n_features,)
+            db = (-2 / n_sample) * np.sum(y - y_pred)
+
+            # update weights
+            self.w -= self.lr * dw
+            self.b -= self.lr * db
+
+            # compute loss and track loss
+            if i % 1000 == 0:
+                loss = self.loss_function(y, y_pred)
+                print(f"Iteration {i}: Loss = {loss}, m = {self.w}, b = {self.b}")
