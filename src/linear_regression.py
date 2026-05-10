@@ -24,6 +24,8 @@ class LinearRegression:
         self.w = np.zeros(n_features)
         self.b = 0
 
+        loss_logs = [] # Track losses
+
         for i in range(self.iterations):
             # y predictions from predict function
             y_pred = self.predict(X)
@@ -36,7 +38,9 @@ class LinearRegression:
             self.w -= self.lr * dw
             self.b -= self.lr * db
 
+            loss = self.loss_function(y, y_pred) # calculate loss
+            loss_logs.append(loss) # append losses to vector
+
             # compute loss and track loss
             if i % 1000 == 0:
-                loss = self.loss_function(y, y_pred)
-                print(f"Iteration {i}: Loss = {loss}, m = {self.w}, b = {self.b}")
+                print(f"Iteration {i}: Loss = {loss}")
