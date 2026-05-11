@@ -36,8 +36,8 @@ class LinearRegression:
             db = (-2 / n_samples) * np.sum(y - y_pred)
 
             # update weights
-            self.w -= self.lr * dw
-            self.b -= self.lr * db
+            self.w += self.lr * dw
+            self.b += self.lr * db
 
             loss = self.loss_function(y, y_pred) # calculate loss
             self.loss_logs.append(loss) # append losses to vector
