@@ -19,7 +19,7 @@ class LinearRegression:
         n = len(y)
         return (1/n) * np.sum((y - y_pred) ** 2)
     
-    def gradient_descent(self, X, y):
+    def fit(self, X, y):
         n_sample, n_features = X.shape
         self.w = np.zeros(n_features)
         self.b = 0
@@ -46,5 +46,11 @@ class LinearRegression:
                 print(f"Iteration {i}: Loss = {loss}")
 
     def get_loss_history(self):
-        return self.loss_history
+        return self.loss_logs
     
+    def score(self, X, y):
+        y_pred = self.predict(X)
+
+        ssr = np.sum((y - y_pred)**2)
+        ssto = np.sum((y - np.mean(y))**2)
+        return 1 - (ssr/ssto) 
