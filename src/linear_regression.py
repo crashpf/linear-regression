@@ -10,6 +10,7 @@ class LinearRegression:
         self.iterations = iterations
         self.w = None
         self.b = None
+        self.loss_logs = []
     
     def predict(self, X):
         # X.shape = (n_samples, n_features) 
@@ -20,26 +21,26 @@ class LinearRegression:
         return (1/n) * np.sum((y - y_pred) ** 2)
     
     def fit(self, X, y):
-        n_sample, n_features = X.shape
+        n_samples, n_features = X.shape
         self.w = np.zeros(n_features)
         self.b = 0
 
-        loss_logs = [] # Track losses
+        self.loss_logs = [] # Track losses
 
         for i in range(self.iterations):
             # y predictions from predict function
             y_pred = self.predict(X)
 
             # gradients
-            dw = (-2 / n_sample) * X.T @ (y - y_pred)  # shape: (n_features,)
-            db = (-2 / n_sample) * np.sum(y - y_pred)
+            dw = (-2 / n_samples) * X.T @ (y - y_pred)  # shape: (n_features,)
+            db = (-2 / n_samples) * np.sum(y - y_pred)
 
             # update weights
             self.w -= self.lr * dw
             self.b -= self.lr * db
 
             loss = self.loss_function(y, y_pred) # calculate loss
-            loss_logs.append(loss) # append losses to vector
+            self.loss_logs.append(loss) # append losses to vector
 
             # compute loss and track loss
             if i % 1000 == 0:
