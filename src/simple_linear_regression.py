@@ -2,7 +2,7 @@ import numpy as np
 
 class SimpleLinearRegression:
     '''Simple linear regression using gradient descent from scratch for a single feature X1 (y = mx + b). 
-    The goal is to optimize the parameters m and b which are scalars.
+    The goal is to optimize the scalar parameters m and b.
     '''
     def __init__(self, lr, iterations):
         self.lr = lr

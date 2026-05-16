@@ -31,6 +31,9 @@ class LinearRegression:
             # y predictions from predict function
             y_pred = self.predict(X)
 
+            loss = self.loss_function(y, y_pred) # calculate loss
+            self.loss_logs.append(loss) # append losses to vector
+
             # gradients
             dw = (-2 / n_samples) * X.T @ (y - y_pred)  # shape: (n_features,)
             db = (-2 / n_samples) * np.sum(y - y_pred)
@@ -38,9 +41,6 @@ class LinearRegression:
             # update weights
             self.w -= self.lr * dw
             self.b -= self.lr * db
-
-            loss = self.loss_function(y, y_pred) # calculate loss
-            self.loss_logs.append(loss) # append losses to vector
 
             # compute loss and track loss
             if i % 1000 == 0:
