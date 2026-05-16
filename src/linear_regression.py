@@ -45,9 +45,6 @@ class LinearRegression:
             # compute loss and track loss
             if i % 1000 == 0:
                 print(f"Iteration {i}: Loss = {loss}")
-
-    def get_loss_history(self):
-        return self.loss_logs
     
     def score(self, X, y):
         y_pred = self.predict(X)
@@ -55,6 +52,3 @@ class LinearRegression:
         ssr = np.sum((y - y_pred)**2)
         ssto = np.sum((y - np.mean(y))**2)
         return 1 - (ssr/ssto) 
-    
-    def get_coeff(self):
-        return {"weights": self.w, "bias": self.b}
