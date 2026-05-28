@@ -52,6 +52,11 @@ class LinearRegression:
             self.w -= self.lr * dw
             self.b -= self.lr * db
 
+            #early stopping
+            if i > 0 and abs(self.loss_logs[-1] - self.loss_logs[-2]) < 1e-9:
+                print(f"Converged at iteration {i}")
+                break
+
             # compute loss and track loss
             if i % 1000 == 0:
                 print(f"Iteration {i}: Loss = {loss}")
