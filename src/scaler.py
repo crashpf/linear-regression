@@ -22,3 +22,6 @@ class StandardScaler:
     def fit_transform(self, X: np.ndarray) -> np.ndarray:
         self.fit(X)
         return self.transform(X)
+    
+    def inverse_transform(self, X_scaled: np.ndarray) -> np.ndarray:
+        return (X_scaled * self.std) + self.mean
