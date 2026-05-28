@@ -70,3 +70,11 @@ class LinearRegression:
 
     def __repr__(self):
         return f"LinearRegression(lr={self.lr}, iterations={self.iterations})"
+    
+    @property
+    def coef_(self):
+        return self.w
+    
+    @property
+    def intercept_(self):
+        return self.b
