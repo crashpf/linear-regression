@@ -4,7 +4,7 @@ class StandardScaler:
     Standardizes features using:
         z = (x - mean) / std
     """
-    def __init__(self):
+    def __init__(self) -> None:
         self.mean = None
         self.std = None
         
