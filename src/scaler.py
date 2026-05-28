@@ -2,8 +2,8 @@ import numpy as np
 
 class StandardScaler:
     """
-    From scratch implementation of StandardScaler by sklearn.
-    Standardizes features using:
+    Implementation of StandardScaler by sklearn from scratch.
+    Standardizes features X using:
         z = (x - mean) / std
     """
     def __init__(self) -> None:
