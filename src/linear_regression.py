@@ -62,3 +62,6 @@ class LinearRegression:
         ssr = np.sum((y - y_pred)**2)
         ssto = np.sum((y - np.mean(y))**2)
         return 1 - (ssr/ssto) 
+
+    def __repr__(self):
+        return f"LinearRegression(lr={self.lr}, iterations={self.iterations})"
