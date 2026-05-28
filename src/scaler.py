@@ -1,12 +1,16 @@
 class StandardScaler:
-    ''' Manual implementation of the StandardScaler from sklearn.'''
+    """
+    From scratch implementation of StandardScaler by sklearn.
+    Standardizes features using:
+        z = (x - mean) / std
+    """
     def __init__(self):
         self.mean = None
-        self.sd = None
+        self.std = None
         
     def fit(self, X):
         self.mean = X.mean(axis=0)
-        self.sd = X.sd(axis=0)
+        self.std = X.std(axis=0)
     
     def transform(self, X):
         if self.mean is None:
