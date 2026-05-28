@@ -5,7 +5,7 @@ class LinearRegression:
     We scaled "simple_linear_regression.py" to multiple features using vectorization.
     The model now becomes y = Xw + b, where X is a matrix and w is a weight vector.
     '''
-    def __init__(self, lr, iterations):
+    def __init__(self, lr: float, iterations):
         self.lr = lr
         self.iterations = iterations
         self.w = None
